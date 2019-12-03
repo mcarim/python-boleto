@@ -23,7 +23,7 @@ class BoletoSantander(BoletoData):
         Gera Dados necessários para criação de boleto para o banco Santander
     '''
 
-    nosso_numero = CustomProperty('nosso_numero', 12)
+    nosso_numero = CustomProperty('nosso_numero', 13)
 
     #: Também chamado de "ponto de venda"
     agencia_cedente = CustomProperty('agencia_cedente', 4)
@@ -37,7 +37,7 @@ class BoletoSantander(BoletoData):
 
         self.codigo_banco = "033"
         self.logo_image = "logo_santander.png"
-        self.carteira = '102'
+        self.carteira = '101'
         # IOS - somente para Seguradoras (Se 7% informar 7, limitado 9%)
         # Demais clientes usar 0 (zero)
         self.ios = "0"
@@ -57,7 +57,6 @@ class BoletoSantander(BoletoData):
             '9',
             self.conta_cedente[-7:],
             self.nosso_numero,
-            self._dv_nosso_numero(),
             self.ios,
             self.carteira,
         ])
